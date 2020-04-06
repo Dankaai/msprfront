@@ -1,4 +1,5 @@
-<php 
+<?php 
+
 $hote = 'localhost';
 $port = "";
 $nom_bdd = 'msprfront';
