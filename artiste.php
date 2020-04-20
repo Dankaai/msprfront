@@ -12,7 +12,7 @@ if( $requete->execute() ){
 	//var_dump($resultats);
 	
     $success = true;
-    //compte le nombre de artistes et le stocke test
+    //compte le nombre de artistes et le stocke 
     $data['nombre'] = count($resultats);
     //stocke le résultat de la requête
 	$data['artiste'] = $resultats;
