@@ -48,5 +48,8 @@ public function install_db(){
    CREATE TABLE IF NOT EXISTS
    abonnement (id_abonnement bigint(20) AUTO_INCREMENT PRIMARY
    FOREIGN KEY (id_user) REFERENCES wpusers (ID), FOREIGN KEY (id_artiste) REFERENCES artiste (id_artiste));
+
+   ALTER TABLE wpusers
+   ADD user_tel varchar(255), user_firstname varchar(255), user_lastname varchar(255);
    ");
 }
