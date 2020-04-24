@@ -1,0 +1,19 @@
+<form method="POST" action="controle_buvette">
+    <label for="nom">Nom de la buvette :</label> <input type="text"  name="nom" id="nom" value=""/><br />
+    <label for="genre_restauration">Genre de la restauration :</label> <input type="text"  name="genre_restauration" id="genre_restauration" value=""/><br />
+    <label for="type_nourriture">Type de la nourriture :</label> <input type="text"  name="type_nourriture" id="type_nourriture" value=""/><br />
+    <label>Accessible : </label>
+    <label>
+        <input type="radio" name="is_accessible" value="1"  />
+        Oui
+    </label><br />
+    <label>
+        <input type="radio" name="is_accessible" value="0"   />
+        Non
+    </label><br />
+    <label for="latitude">Latitude :</label> <input type="text"  name="latitude" id="latitude" value=""/><br />
+    <label for="longitude">Longitude : </label> <input type="text"  name="longitude" id="longitude" value=""/><br />
+    <label for="heure_debut">Heure de début :</label> <input type="date"  name="heure_debut" id="heure_debut" value=""/><br />
+    <label for="heure_fin">Heure de fin :</label> <input type="date"  name="heure_fin" id="heure_fin" value=""/><br />
+    <label for="information">Information : </label> <input type="text"  name="information" id="information" value=""/><br />
+    <input type="submit" name="Envoyer" value="Envoyer" /> </form>

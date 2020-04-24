@@ -11,6 +11,5 @@ Author: Hugo Taviaux
 Version: 1.0
 Author URI: http://msprfront/
 */
-require_once(__ROOT__.'/gestion-festival-functions.php')
-
+require_once('C:\wamp64\www\msprfront\wp-content\plugins\gestion-festival\gestion-festival-functions.php');
 

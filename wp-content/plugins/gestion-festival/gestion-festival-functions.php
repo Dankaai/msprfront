@@ -1,5 +1,5 @@
 <?php
-public function install_db(){
+function install_db(){
     global $wpdb;
     $wpdb->query("CREATE TABLE IF NOT EXISTS
    artiste (id_artiste bigint(20) AUTO_INCREMENT PRIMARY
@@ -7,15 +7,15 @@ public function install_db(){
    
    CREATE TABLE IF NOT EXISTS
    boutique (id_boutique bigint(20) AUTO_INCREMENT PRIMARY
-   KEY, nom varchar(256), type_merchandising varchar(256), is_accessible tinyint(1), latitude varchar(256), longitude varchar(256), heure_debut datetime, heure_fin datetime, informations varchar(256));
+   KEY, nom varchar(256), type_merchandising varchar(256), is_accessible tinyint(1), latitude varchar(256), longitude varchar(256), heure_debut datetime, heure_fin datetime, information varchar(256));
    
    CREATE TABLE IF NOT EXISTS
    buvette (id_buvette bigint(20) AUTO_INCREMENT PRIMARY
-   KEY, nom varchar(256), genre_restauration varchar(256), type_nourriture varchar(256), is_accessible tinyint(1), latitude varchar(256), longitude varchar(256), heure_debut datetime, heure_fin datetime, informations varchar(256));
+   KEY, nom varchar(256), genre_restauration varchar(256), type_nourriture varchar(256), is_accessible tinyint(1), latitude varchar(256), longitude varchar(256), heure_debut datetime, heure_fin datetime, information varchar(256));
   
    CREATE TABLE IF NOT EXISTS
    concert (id_concert bigint(20) AUTO_INCREMENT PRIMARY
-   KEY, date date, heure_debut datetime, heure_fin datetime, informations varchar(256), FOREIGN KEY (id_artiste) REFERENCES artiste (id_artiste), FOREIGN KEY (id_scene) REFERENCES scene (id_scene));
+   KEY, date date, heure_debut datetime, heure_fin datetime, information varchar(256), FOREIGN KEY (id_artiste) REFERENCES artiste (id_artiste), FOREIGN KEY (id_scene) REFERENCES scene (id_scene));
   
    CREATE TABLE IF NOT EXISTS
    faq (id_faq bigint(20) AUTO_INCREMENT PRIMARY    
@@ -47,12 +47,31 @@ public function install_db(){
    
    CREATE TABLE IF NOT EXISTS
    abonnement (id_abonnement bigint(20) AUTO_INCREMENT PRIMARY
-   FOREIGN KEY (id_user) REFERENCES wpusers (ID), FOREIGN KEY (id_artiste) REFERENCES artiste (id_artiste));
-   ALTER TABLE wpusers
+   FOREIGN KEY (id_user) REFERENCES wp_users (ID), FOREIGN KEY (id_artiste) REFERENCES artiste (id_artiste));
+   ALTER TABLE wp_users
    ADD user_tel varchar(255), user_firstname varchar(255), user_lastname varchar(255);
    ");
 }
 
+function uninstall_db(){
+    global $wpdb;
+    $wpdb->query("DROP TABLE IF EXISTS artiste;
+    DROP TABLE IF EXISTS boutique;
+    DROP TABLE IF EXISTS buvette; 
+    DROP TABLE IF EXISTS concert;
+    DROP TABLE IF EXISTS faq;
+    DROP TABLE IF EXISTS information;
+    DROP TABLE IF EXISTS parking;
+    DROP TABLE IF EXISTS participe_rencontre;
+    DROP TABLE IF EXISTS rencontre;
+    DROP TABLE IF EXISTS scene;
+    DROP TABLE IF EXISTS stand;
+    DROP TABLE IF EXISTS abonnement;
+
+    ");
+}
+
+
 add_action('init', 'install_db');
 add_action('init', 'uninstall_db');
-add_action('init', 'insert_db');
+
