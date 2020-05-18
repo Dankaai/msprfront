@@ -51,7 +51,7 @@ while ($data = $requete->fetch()) {
 
 </table>
 </html>
-?>
+
 
            
             
