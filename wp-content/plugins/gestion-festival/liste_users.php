@@ -19,7 +19,7 @@
     $port = "";
     $nom_bdd = 'msprfront';
     $utilisateur = 'root';
-    $mot_de_passe ='';
+    $mot_de_passe ='hugo150199';
     
     try {
         //On test la connexion à la base de donnée

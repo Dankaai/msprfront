@@ -3,8 +3,9 @@
     <table> 
         <thead> 
             <tr> 
-                <th>Nom</th>
-                <th>Type :</th> 
+                <th>Nom: </th>
+                <th>Type: </th> 
+                <th>Image: </th>
                 <th>Informations :</th>
             </tr> 
         </thead> 
@@ -16,7 +17,7 @@
     $port = "";
     $nom_bdd = 'msprfront';
     $utilisateur = 'root';
-    $mot_de_passe ='';
+    $mot_de_passe ='hugo150199';
     
     try {
         //On test la connexion à la base de donnée
@@ -35,6 +36,7 @@ while ($data = $requete->fetch()) {
 <tr> 
 <td><?= $data['nom']; ?></td> 
 <td><?= $data['type']; ?></td> 
+<td><?= $data['image']; ?></td>
 <td><?= $data['information']; ?></td> 
 </tr>
 <?php } ?> 

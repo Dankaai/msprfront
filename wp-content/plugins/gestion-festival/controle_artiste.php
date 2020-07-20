@@ -1,4 +1,5 @@
 <?php
+include('../../../template.php');
 
 if(isset($_POST['Envoyer'] )){
 $erreur = NULL;
@@ -58,26 +59,13 @@ echo $erreur_type;
 echo $erreur_information;
 
 } else {
-    $hote = 'localhost';
-    $port = "";
-    $nom_bdd = 'msprfront';
-    $utilisateur = 'root';
-    $mot_de_passe ='';
     
-    try {
-        //On test la connexion à la base de donnée
-        $pdo = new PDO('mysql:host='.$hote.';dbname='.$nom_bdd, $utilisateur, $mot_de_passe);
-        echo("<script>console.log('connecté');</script>");
-    
-    }
-catch (Exception $e) {  
-die('Erreur : ' . $e->getMessage()); 
- } 
 $query=$pdo->prepare('INSERT INTO artiste (
 nom, type, information
-) VALUES (:nom, :type, :information)');
+) VALUES (:nom, :type, :image, :information)');
 $query->bindValue(':nom', $_POST['nom'], PDO::PARAM_STR);
 $query->bindValue(':type', $_POST['type'], PDO::PARAM_STR);
+$query->bindValue(':image', $_POST['image'],PDO::PARAM_STR);
 $query->bindValue(':information', $_POST['information'], PDO::PARAM_STR);
 $query->execute();
 $query->CloseCursor();
